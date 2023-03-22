@@ -87,4 +87,37 @@ end
 # p b([1, 2, 3, 4, 5, 6], 0) # => nil
 # p b([1, 2, 3, 4, 5, 7], 6) # => nil
 
+def merge_sort(arr)
+    return arr if arr.length < 2
+    mid_point = arr.length/2
+    left = arr[0...mid_point]
+    right = arr[mid_point..-1]
+    
+    left_sorted = merge_sort(left)
+    right_sorted = merge_sort(right)
 
+    merge(left_sorted,right_sorted)
+end
+
+def merge(left, right)
+    merged_array = []
+    
+    # while left.length != 0 && right.length !
+    until left.length == 0 || right.length == 0
+        if left[0] < right[0]
+            merged_array << left.shift
+        else
+            merged_array << right.shift
+        end
+    end
+    merged_array + left + right
+end
+    
+    # arr1.each_with_index do |subarr,i|
+    #     break if subarr == arr1.last
+    #     if subarr[0] < arr1[i+1][0]
+    #         subarr << arr1[i+1][0]
+    #     else
+    #         arr1[i+1] << subarr[0]
+
+p merge_sort([2,15,12,25,20,3])
