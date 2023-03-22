@@ -64,5 +64,27 @@ end
 
 # p fib(5)
 
-def
+def b(arr, target)
+    return arr.length/2 if arr[arr.length/2] == target 
+    if arr.length <= 2 && !arr.inlcude?(target)
+        return nil
+    else
+        return arr.index(target)
+    end 
+
+    if target > arr[arr.length/2]
+        b(arr[arr.length/2..-1], target)
+    else 
+        b(arr[0..arr.length/2], target)
+    end
+end 
+
+# p b([1, 2, 3], 1) # => 0
+# p b([2, 3, 4, 5], 3) # => 1
+# p b([2, 4, 6, 8, 10], 6) # => 2
+# p b([1, 3, 4, 5, 9], 5) # => 3
+# p b([1, 2, 3, 4, 5, 6], 6) # => 5
+# p b([1, 2, 3, 4, 5, 6], 0) # => nil
+# p b([1, 2, 3, 4, 5, 7], 6) # => nil
+
 
