@@ -120,4 +120,14 @@ end
     #     else
     #         arr1[i+1] << subarr[0]
 
-p merge_sort([2,15,12,25,20,3])
+# p merge_sort([2,15,12,25,20,3])
+
+def subsets(arr)
+    subset_arr = []
+    return [] if arr == []
+    
+    subset_arr << arr[0] + subsets(arr[1..-1])
+    subset_arr
+end 
+
+p subsets([1, 2, 3])
